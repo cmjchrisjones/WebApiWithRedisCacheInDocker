@@ -14,11 +14,6 @@ namespace API.Controllers
     [Route("[controller]")]
     public class UploadBookController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<UploadBookController> _logger;
 
         public UploadBookController(ILogger<UploadBookController> logger)
@@ -27,6 +22,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
+        [Route("/uploadAndReturnJSON")]
         public async Task<IActionResult> Post(IFormFile file)
         {
             if(file == null)
@@ -47,7 +43,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        [Route("/uploadAndReturn")]
+        [Route("/uploadAndReturnCSVFile")]
         public async Task<FileResult> PostAndReturnFile(IFormFile file)
         {
             var isbns = new List<string>();
