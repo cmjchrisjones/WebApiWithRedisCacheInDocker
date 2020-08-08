@@ -2,6 +2,8 @@ A quick solution and example of a Web API which calls a 3rd party service (in th
 
 This project also has Redis to cache results, so on successful query, the result is stored so when searched for again it will check Redis to save flooding requests into the ISBNDB API, and Redis Commander which gives a nice little GUI over the Redis DB so you can see it!
 
+### This could probably be refactored more and made a little faster - but it was a fun little thing to do and integrate with Redis also as a bit of a test & learn exercise!
+
 ## Pre-requisites
 
 Docker
