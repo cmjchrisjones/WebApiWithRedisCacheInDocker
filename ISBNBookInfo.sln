@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookProcessor", "BookProcessor\BookProcessor.csproj", "{09241F84-7DCE-4FA3-A07D-537C948F8597}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{F445E3C2-5100-4394-B68B-D60756335EA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{75352019-0671-467F-B1E0-B03E0C2CDCFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09241F84-7DCE-4FA3-A07D-537C948F8597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09241F84-7DCE-4FA3-A07D-537C948F8597}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09241F84-7DCE-4FA3-A07D-537C948F8597}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09241F84-7DCE-4FA3-A07D-537C948F8597}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F445E3C2-5100-4394-B68B-D60756335EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F445E3C2-5100-4394-B68B-D60756335EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F445E3C2-5100-4394-B68B-D60756335EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F445E3C2-5100-4394-B68B-D60756335EA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75352019-0671-467F-B1E0-B03E0C2CDCFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75352019-0671-467F-B1E0-B03E0C2CDCFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75352019-0671-467F-B1E0-B03E0C2CDCFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75352019-0671-467F-B1E0-B03E0C2CDCFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8768F041-BEC9-4258-A52D-E6C1D33F4527}
+	EndGlobalSection
+EndGlobal

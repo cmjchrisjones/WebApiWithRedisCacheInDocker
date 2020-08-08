@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  redis:
+    container_name: nicks-book-store-redis-cache
+    hostname: redis
+    image: redis
+    ports: 
+      - 6379:6379
+    volumes: 
+      - ./redis-cached-data/:/data
+ 
+  redis-commander:
+    container_name: nicks-book-store-redis-commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+    - REDIS_HOSTS=local:redis:6379
+    ports:
+    - "8085:8081"
+
+  api:
+    container_name: api
+    hostname: API
+    build: 
+      context: .
+      dockerfile: Dockerfile-API
+    environment:
+    - ApiKey= #update this EG - ApiKey=mySecretPassword
+    ports:
+      - 8086:80
+      
