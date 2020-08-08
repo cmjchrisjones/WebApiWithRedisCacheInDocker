@@ -24,16 +24,15 @@ Docker
 
 Enjoy!
 
-
 ## Breakdown of the projects and what they do!
 
 ### API
 
-This is just a relatively simple web api written in ASP.NET Core 3.1. 
+This is just a relatively simple web api written in ASP.NET Core 3.1.
 
-It has a simple controller named `UploadBookController` which exposes 2 endpoints called `uploadAndReturnJSON` and `uploadAndReturnCSVFile`.
+It has a simple controller named `UploadBookController` which exposes 2 endpoints called `uploadAndReturnJSON` and `uploadAndReturnCSVFile`. The names should be fairly self explanatory.
 
-The virtual paths for the API routes are defined by using the Route decorator attibute, eg
+The virtual paths for the API routes are defined by using the Route decorator attribute, eg
 
 ```csharp
 [HttpPost]
@@ -44,7 +43,9 @@ public async Task<IActionResult> Post(IFormFile file)
 }
 ```
 
-The only other thing I added was Swagger/Swashbuckle to give a nice i linterface to interact/test with - the configuration can be found in [Startup.cs](API/Startup.cs)
+The only other thing I added was Swagger/Swashbuckle to give a nice little interface to interact/test with - the configuration can be found in [Startup.cs](API/Startup.cs)
+
+![Swagger](./docs/Swagger.png)
 
 ### Console
 
@@ -92,3 +93,7 @@ This is where the crux of the functionality lives and I'll break this down file 
   Now that the authors were tidied, I could add these results into our very own custom POCO of `OutputDetails`
 
   Hopefully there is some decent explanations in here! :)
+
+  ## Here is an example of Redis having cached some results and viewing them via the Redis Commander GUI!
+
+  ![Redis-Commander.png](docs/RedisCommander.png)
