@@ -1,4 +1,4 @@
-﻿namespace BookProcessor
+﻿namespace BookProcessor.DTO
 {
     public class OutputDetails
     {
