@@ -19,15 +19,22 @@ services:
     - REDIS_HOSTS=local:redis:6379
     ports:
     - "8085:8081"
+    depends_on:
+    -  redis
 
   api:
-    container_name: api
+    container_name: nicks-book-store-api
     hostname: API
     build: 
       context: .
       dockerfile: Dockerfile-API
     environment:
-    - ApiKey= #update this EG - ApiKey=mySecretPassword
+#   - ApiKey= #update this EG - ApiKey=mySecretPassword
+    - ApiKey=${ISBNDB_API_KEY} #If you have it stored as an environment variable, replace the part between the curly braces with the environment variable name.
+    - RedisConnectionString=redis:6379,password=
     ports:
       - 8086:80
+    depends_on:
+    - redis
+
       

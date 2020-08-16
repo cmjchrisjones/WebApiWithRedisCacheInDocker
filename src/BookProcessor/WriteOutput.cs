@@ -1,4 +1,4 @@
-﻿using BookProcessor;
+﻿using BookProcessor.DTO;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -39,14 +39,14 @@ namespace BookProcessor
 
             if (notFound.Any())
             {
-                csv.Append("\r\n\r\nThe following ISBNs were not found\r\n\r\n");
+                csv.Append($"\r\n\r\nThe following {notFound.Count} ISBNs were not found\r\n\r\n");
 
                 foreach (var p in notFound)
                 {
-                    csv.Append(p);
+                    csv.Append($"{p}\r\n");
                 }
             }
-            File.WriteAllText("output.csv", csv.ToString());
+            File.WriteAllText("output.csv", csv.ToString().TrimEnd(','));
         }
 
         public static FileStreamResult ToFileOutAsCSV(List<OutputDetails> outputDetails, List<string> notFound)
@@ -60,20 +60,20 @@ namespace BookProcessor
 
             if (notFound.Any())
             {
-                csv.Append("\r\n\r\nThe following ISBNs were not found\r\n\r\n");
+                csv.Append($"\r\n\r\nThe following {notFound.Count} ISBNs were not found\r\n\r\n");
 
                 foreach (var p in notFound)
                 {
-                    csv.Append(p);
+                    csv.Append($"{p}\r\n");
                 }
             }
-            File.WriteAllText("output.csv", csv.ToString());
+            File.WriteAllText("output.csv", csv.ToString().TrimEnd(','));
 
             Stream s = new FileStream("output.csv", FileMode.Open);
             return new FileStreamResult(s, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
             {
                 FileDownloadName = "output.csv"
             };
-        }
+        } 
     }
 }

@@ -1,8 +1,8 @@
-﻿using BookProcessor;
+﻿using BookProcessor.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace BookProcessor
 {
@@ -10,7 +10,7 @@ namespace BookProcessor
     {
         public static Book Serialize(string bookDetails)
         {
-            var book = JsonSerializer.Deserialize<Rootobject>(bookDetails);
+            var book = JsonConvert.DeserializeObject<Rootobject>(bookDetails);
             return book.book;
         }
     }

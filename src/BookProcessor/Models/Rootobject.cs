@@ -1,6 +1,4 @@
-﻿using BookProcessor;
-
-namespace BookProcessor
+﻿namespace BookProcessor.Models
 {
     public class Rootobject
     {

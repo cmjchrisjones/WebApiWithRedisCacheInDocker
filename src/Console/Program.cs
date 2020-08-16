@@ -24,7 +24,8 @@ namespace Console
             };
 
             var apiKey = Environment.GetEnvironmentVariable("ApiKey");
-            var results = await new ProcessBooks().ByISBNsAsync(isbns, apiKey);
+            var connectionString = Environment.GetEnvironmentVariable("RedisConnectionString");
+            var results = await new ProcessBooks().ByISBNsAsync(isbns, apiKey, connectionString);
             WriteOutput.ToConsole(results.OutputDetails, results.NotFound);
             WriteOutput.ToCSV(results.OutputDetails, results.NotFound);
             System.Console.WriteLine("Finished");

@@ -22,10 +22,25 @@ namespace API.Controllers
         }
 
         [HttpPost]
+        [Route("/singleBookReturnJson")]
+        public async Task<IActionResult> Post(string isbn)
+        {
+            if (string.IsNullOrWhiteSpace(isbn))
+            {
+                return BadRequest();
+            }
+
+            var connectionString = Environment.GetEnvironmentVariable("RedisConnectionString");
+            var result = await new BookProcessor.ProcessBooks().BySingleISBNAsync(isbn, Environment.GetEnvironmentVariable("ApiKey"), connectionString);
+            var serializedResult = JsonConvert.SerializeObject(result);
+            return Ok(serializedResult);
+        }
+
+        [HttpPost]
         [Route("/uploadAndReturnJSON")]
         public async Task<IActionResult> Post(IFormFile file)
         {
-            if(file == null)
+            if (file == null)
             {
                 return BadRequest();
             }
@@ -33,9 +48,10 @@ namespace API.Controllers
 
             using (var sr = new StreamReader(file.OpenReadStream()))
             {
+                var connectionString = Environment.GetEnvironmentVariable("RedisConnectionString");
                 var fileContents = await sr.ReadToEndAsync();
                 isbns = fileContents.Replace("\r\n", string.Empty).Split(",").ToList();
-                var results = await new BookProcessor.ProcessBooks().ByISBNsAsync(isbns, Environment.GetEnvironmentVariable("ApiKey"));
+                var results = await new BookProcessor.ProcessBooks().ByISBNsAsync(isbns, Environment.GetEnvironmentVariable("ApiKey"), connectionString);
 
                 var serialized = JsonConvert.SerializeObject(results);
                 return Ok(serialized);
@@ -52,7 +68,7 @@ namespace API.Controllers
             {
                 var fileContents = await sr.ReadToEndAsync();
                 isbns = fileContents.Replace("\r\n", string.Empty).Split(",").ToList();
-                var results = await new BookProcessor.ProcessBooks().ByISBNsAsync(isbns, Environment.GetEnvironmentVariable("ApiKey"));
+                var results = await new BookProcessor.ProcessBooks().ByISBNsAsync(isbns, Environment.GetEnvironmentVariable("ApiKey"), Environment.GetEnvironmentVariable("RedisConnectionString"));
 
                 var fileOut = BookProcessor.WriteOutput.ToFileOutAsCSV(results.OutputDetails, results.NotFound);
                 return fileOut;

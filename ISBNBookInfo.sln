@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookProcessor", "BookProcessor\BookProcessor.csproj", "{09241F84-7DCE-4FA3-A07D-537C948F8597}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookProcessor", "src\BookProcessor\BookProcessor.csproj", "{09241F84-7DCE-4FA3-A07D-537C948F8597}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{F445E3C2-5100-4394-B68B-D60756335EA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console", "src\Console\Console.csproj", "{F445E3C2-5100-4394-B68B-D60756335EA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{75352019-0671-467F-B1E0-B03E0C2CDCFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "src\API\API.csproj", "{75352019-0671-467F-B1E0-B03E0C2CDCFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redis", "src\Redis\Redis.csproj", "{1A4D39D2-1A14-4F9C-B29D-0CC9ED73E335}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookProcessorTests", "tests\BookProcessorTests\BookProcessorTests.csproj", "{15322748-47C3-45E8-B494-A23D1252C665}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{75352019-0671-467F-B1E0-B03E0C2CDCFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75352019-0671-467F-B1E0-B03E0C2CDCFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75352019-0671-467F-B1E0-B03E0C2CDCFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15322748-47C3-45E8-B494-A23D1252C665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15322748-47C3-45E8-B494-A23D1252C665}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15322748-47C3-45E8-B494-A23D1252C665}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15322748-47C3-45E8-B494-A23D1252C665}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A4D39D2-1A14-4F9C-B29D-0CC9ED73E335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A4D39D2-1A14-4F9C-B29D-0CC9ED73E335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A4D39D2-1A14-4F9C-B29D-0CC9ED73E335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A4D39D2-1A14-4F9C-B29D-0CC9ED73E335}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
